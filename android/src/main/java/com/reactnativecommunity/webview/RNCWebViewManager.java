@@ -874,6 +874,13 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
       return this.shouldOverrideUrlLoading(view, url);
     }
 
+    
+    @Override
+    public void onReceivedSslError(final WebView webView, final SslErrorHandler handler, final SslError error) {
+      handler.proceed();
+    }
+    
+    /*
     @Override
     public void onReceivedSslError(final WebView webView, final SslErrorHandler handler, final SslError error) {
         // onReceivedSslError is called for most requests, per Android docs: https://developer.android.com/reference/android/webkit/WebViewClient#onReceivedSslError(android.webkit.WebView,%2520android.webkit.SslErrorHandler,%2520android.net.http.SslError)
@@ -932,6 +939,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
           failingUrl
         );
     }
+    */
 
     @Override
     public void onReceivedError(
